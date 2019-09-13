@@ -11,13 +11,7 @@ btnLogin.addEventListener("click", event => {
   });
 
   const formError = document.querySelector(".validate-error");
-  if (formError) {
-    formError.addEventListener("animationend", event => {
-      if (event.animationName === "nono") {
-        formError.classList.remove("validate-error");
-      }
-    });
-  } else {
+  if (!formError) {
     form.classList.add("form-hide");
   }
 });
@@ -32,6 +26,10 @@ form.addEventListener("animationend", event => {
   if (event.animationName === "down") {
     form.style.display = "none";
     document.querySelector("body").style.overflow = "none";
+  }
+
+  if (event.animationName === "nono") {
+    form.classList.remove("validate-error");
   }
 });
 
